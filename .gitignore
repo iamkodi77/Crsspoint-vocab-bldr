@@ -1,0 +1,7 @@
+# Build and test artifacts
+__pycache__/
+*.pyc
+*.pyo
+test/test_vocab_store
+.cache/
+.DS_Store
