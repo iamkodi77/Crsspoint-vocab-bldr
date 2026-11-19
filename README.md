@@ -82,10 +82,23 @@ If you are building CrossPoint firmware directly from [crosspoint-reader](https:
 
 2. Build and flash with PlatformIO:
    ```bash
-   pio run -e x3 -t upload   # for Xteink X3
+   pio run -e default -t upload   # for Xteink X3/X4
    # or
-   pio run -e x4 -t upload   # for Xteink X4
+   pio run -e x4pro -t upload     # for Xteink X4 Pro
    ```
+
+---
+
+### Method 3: Update Directly via SD Card (No USB Flashing Needed!)
+
+CrossPoint supports flashing firmware `.bin` files directly from your MicroSD card without keeping your reader connected via USB.
+
+See the dedicated [**`sd_firmware_update/`**](./sd_firmware_update/README.md) directory for full instructions and helper scripts:
+
+1. Build or copy `firmware.bin` using `sd_firmware_update/build_sd_firmware.py`.
+2. Copy `firmware.bin` to the root of your MicroSD card.
+3. On your Xteink reader, go to **Settings → System → SD Card Firmware Update** (or hold **Left Button + Power** on boot for X3).
+4. Select `firmware.bin` and confirm to update!
 
 ---
 
@@ -114,6 +127,9 @@ Crsspoint-vocab-bldr/
 ├── plugin.py                     # xteink-plugins manifest definition
 ├── patch.py                      # Reader hook patcher (adds [Vocab] action to book selection)
 ├── install.py                    # Standalone installation script for crosspoint or xteink-plugins
+├── sd_firmware_update/           # SD Card firmware flashing guide & binary builder
+│   ├── README.md                 # Complete SD card flashing instructions & troubleshooting
+│   └── build_sd_firmware.py      # Automated script to build firmware.bin for SD card update
 ├── test/
 │   ├── test_vocab_store.cpp      # Native C++ unit tests (cleaning, deduplication, file IO)
 │   ├── test_patch.py             # Patch application and idempotency tests
