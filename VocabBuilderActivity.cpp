@@ -1,5 +1,6 @@
 #include "VocabBuilderActivity.h"
 
+#include <Memory.h>
 #include <algorithm>
 #include <cstdio>
 #include <string>
@@ -301,7 +302,7 @@ void VocabBuilderActivity::renderFlashcard() {
 
   if (flashcardIndex >= 0 && flashcardIndex < static_cast<int>(words.size())) {
     const std::string& currentWord = words[static_cast<size_t>(flashcardIndex)];
-    const int fontId = UI_14_FONT_ID;
+    const int fontId = UI_12_FONT_ID;
     const int lineHeight = renderer.getLineHeight(fontId);
     renderer.drawCenteredText(fontId, screenH / 2 - lineHeight, currentWord.c_str(), EpdFontFamily::BOLD);
 
